@@ -49,7 +49,7 @@ class ProjectsController extends Controller
         // $project_image_id = $project_image->getPublicId();
         // $project_image_url = $project_image->getPath();
 
-        Project::create(["name"=>$project_name,"slug"=>$project_slug/*,"image_id"=>$project_image_id*/,"image_url"=>$project_image_url]);
+        Project::create(["name"=>$project_name,"slug"=>$project_slug/*,"image_id"=>$project_image_id,"image_url"=>$project_image_url*/]);
         
         return ["message"=>"Project created","success"=>true];
 

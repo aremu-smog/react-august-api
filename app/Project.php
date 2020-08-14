@@ -13,4 +13,9 @@ class Project extends Model
         "image_id",
         "image_url"
     ];
+
+    protected $attributes = [
+        "image_id"=>null,
+        "image_url"=>null
+    ];
 }
