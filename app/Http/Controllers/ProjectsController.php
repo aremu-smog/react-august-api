@@ -39,18 +39,19 @@ class ProjectsController extends Controller
         $request->validate([
             "project_name" => "required",
             "project_slug" => "required",
-            // "project_image" => "file|mimes:jpeg,jpg,png,gif"
+            "project_image" => "file|mimes:jpeg,jpg,png,gif"
         ]);
 
         $project_name = $request->project_name;
         $project_slug = $request->project_slug;
 
-        // $project_image = $request->file('project_image')->storeOnCloudinary('React August');
-        // $project_image_id = $project_image->getPublicId();
-        // $project_image_url = $project_image->getPath();
+        $project_image = $request->file('project_image')->storeOnCloudinary('React August');
+        $project_image_id = $project_image->getPublicId();
+        $project_image_url = $project_image->getPath();
 
-        Project::create(["name"=>$project_name,"slug"=>$project_slug/*,"image_id"=>$project_image_id,"image_url"=>$project_image_url*/]);
+        Project::create(["name"=>$project_name,"slug"=>$project_slug,"image_url"=>$project_image_url,"image_id"=>$project_image_id]);
         
+        // return["message"=>$request->file("project_image")];
         return ["message"=>"Project created","success"=>true];
 
     }
