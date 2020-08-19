@@ -10,5 +10,5 @@ class Resource extends Model
     protected $fillable = [
         "name",
         "link"
-    ]
+    ];
 }
