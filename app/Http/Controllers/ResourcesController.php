@@ -41,11 +41,11 @@ class ResourcesController extends Controller
         $request->validate([
             "resource_name"=>"required",
             "resource_link"=>"required"
-        ])
+        ]);
 
         Resource::create(["name"=>$request->resource_name,"link"=>$request->resource_link]);
 
-        return ["message"=>"Resource created","success":true]
+        return ["message"=>"Resource created","success":true];
     }
 
     /**
