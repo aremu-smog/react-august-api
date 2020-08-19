@@ -89,6 +89,29 @@ class ProjectsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        /*$request->validate([
+            "project_name" => "required",
+            "project_slug" => "required",
+            "project_image" => "file|mimes:jpeg,jpg,png,gif"
+        ]);*/
+
+        $project = Project::find($id)
+        $project_name = $request->project_name;
+        $project_slug = $request->project_slug;
+        
+        if(isset($request->file('project_image'))){
+            $project_image = $request->file('project_image')->storeOnCloudinary('React August');
+            $project->image_id = $project_image->getPublicId();
+            $project->image_url = $project_image->getPath();
+        }
+
+        $project->name = $project_name
+        $project->slug = $project_slug
+
+        $project->save()
+        
+        // return["message"=>$request->file("project_image")];
+        return ["message"=>"Project updated","success"=>true];
     }
 
     /**
