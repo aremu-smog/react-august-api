@@ -45,7 +45,7 @@ class ResourcesController extends Controller
 
         Resource::create(["name"=>$request->resource_name,"link"=>$request->resource_link]);
 
-        return ["message"=>"Resource created","success":true];
+        return ["message"=>"Resource created","success"=>true];
     }
 
     /**
