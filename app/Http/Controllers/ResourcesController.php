@@ -19,16 +19,19 @@ class ResourcesController extends Controller
         return Resource::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
+     /**
+     * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show($id)
     {
         //
+        return Project::find($id);
     }
 
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -48,28 +51,6 @@ class ResourcesController extends Controller
         return ["message"=>"Resource created","success"=>true];
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-        return Project::find($id);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
