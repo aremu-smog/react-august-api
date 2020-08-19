@@ -28,10 +28,10 @@ class ResourcesController extends Controller
     public function show($id)
     {
         //
-        return Project::find($id);
+        return Resource::find($id);
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
