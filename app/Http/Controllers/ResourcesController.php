@@ -82,5 +82,7 @@ class ResourcesController extends Controller
     {
         //
         Resource::destroy($id);
+
+        return Resource::all();
     }
 }
