@@ -79,7 +79,7 @@ class ProjectsController extends Controller
         $project_name = $request->project_name;
         $project_slug = $request->project_slug;
         
-        if($request->has('project_image')){
+        if($request->hasFile('project_image')){
             $project_image = $request->file('project_image')->storeOnCloudinary('React August');
             $project->image_id = $project_image->getPublicId();
             $project->image_url = $project_image->getPath();
