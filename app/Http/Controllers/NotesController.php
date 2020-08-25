@@ -28,10 +28,10 @@ class NotesController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate(
+        $request->validate([
             'day'=>'required|integer',
-            'content' => 'required'
-        )
+            'content' => 'required']
+        );
 
         Note::create(['day'=>$request->day,'content'=>$request->content]);
 
@@ -69,7 +69,7 @@ class NotesController extends Controller
         $note->content = $request->content;
         $note->save();
 
-        return ["message"=>"Note updated successfully","success"=>true]
+        return ["message"=>"Note updated successfully","success"=>true];
     }
 
     /**
