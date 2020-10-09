@@ -15,9 +15,10 @@ class NotesController extends Controller
     {
         //
         return Note::all();
+        //This returns all the note
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +51,7 @@ class NotesController extends Controller
         return Note::find($id);
     }
 
-  
+
     /**
      * Update the specified resource in storage.
      *
